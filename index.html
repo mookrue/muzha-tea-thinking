@@ -51,6 +51,10 @@ button{font:inherit;color:inherit}
 /* home */
 .hero{display:grid;gap:14px;padding-block:8px 28px}
 .hero .lede{font-size:18px;max-width:34em}
+.warn{border:1.5px solid var(--warn);background:var(--warn-soft);border-radius:var(--r);padding:14px 16px;display:grid;gap:6px;font-size:15px}
+.warn b{color:var(--warn)}
+.abil{font-size:15px;margin:0 0 8px;padding:8px 12px;border-left:3px solid var(--leaf);background:var(--sunk);border-radius:0 8px 8px 0}
+.warnline{font-size:13px;color:var(--warn);margin-bottom:12px}
 .how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-block:8px 28px}
 .how div{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:grid;gap:4px}
 .how b{font-family:var(--f-display);font-size:18px}
@@ -109,7 +113,7 @@ button{font:inherit;color:inherit}
 .chipcard .yr{font-family:var(--f-mono);font-size:13px;color:var(--liquor);grid-row:span 2;min-width:5.2em;padding-top:2px}
 .chipcard .src{font-size:12px;color:var(--muted)}
 .chipcard[aria-pressed="true"]{border-color:var(--liquor);box-shadow:0 0 0 3px var(--liquor-soft)}
-.chipcard.ok{border-color:var(--leaf)} .chipcard.mid{border-color:var(--mid)} .chipcard.no{border-color:var(--warn)}
+.chipcard.ok{border-color:var(--leaf)} .chipcard.mid{border-color:var(--mid)} .chipcard.no{border-color:var(--warn)} .chipcard.open{border-color:var(--ink)}
 .buckets{display:grid;gap:10px}
 .buckets.cols{grid-template-columns:repeat(var(--n),minmax(0,1fr))}
 .bucket{border:2px dashed var(--line);border-radius:12px;padding:12px;display:grid;gap:8px;align-content:start;min-height:96px;cursor:pointer;transition:background .15s,border-color .15s}
@@ -119,7 +123,7 @@ button{font:inherit;color:inherit}
 .bucket .bh span{font-size:12.5px;color:var(--muted)}
 .placed{display:grid;gap:4px}
 .pfb{font-size:13.5px;border-radius:8px;padding:6px 10px}
-.pfb.ok{background:var(--leaf-soft)} .pfb.mid{background:var(--mid-soft)} .pfb.no{background:var(--warn-soft)}
+.pfb.ok{background:var(--leaf-soft)} .pfb.mid{background:var(--mid-soft)} .pfb.no{background:var(--warn-soft)} .pfb.open{background:var(--sunk)}
 .funnel .bucket.b1{width:100%}
 .funnel .bucket.b2{width:82%;justify-self:center}
 .funnel .spout{width:56%;justify-self:center;background:var(--ink);color:var(--bg);border-radius:12px;padding:10px;text-align:center;font-family:var(--f-display)}
@@ -161,6 +165,9 @@ textarea{width:100%;border:1px solid var(--line);border-radius:10px;background:v
 textarea:focus{outline:none;border-color:var(--leaf);box-shadow:0 0 0 3px var(--leaf-soft)}
 details.model{font-size:15px}
 details.model summary{cursor:pointer;color:var(--leaf);font-weight:500}
+.skillbox{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:6px 0 14px;background:var(--sunk)}
+.skillbox p{margin:4px 0}
+.reflbox{margin-top:18px;padding-top:16px;border-top:1px dashed var(--line)}
 .cheat{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:15px;align-items:baseline}
 .cheat b{font-family:var(--f-display);font-size:20px;color:var(--leaf)}
 .notes pre{white-space:pre-wrap;font-family:var(--f-body);font-size:14.5px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;margin:0}
@@ -209,10 +216,10 @@ footer b{color:var(--ink)}
   </div>
   <main id="app"></main>
   <footer>
-    <p><b>關於這個網站</b>　六個任務依據 OER Project 的歷史思考技能指南、Sourcing／Contextualization／Causation／Comparison 工具、Sourcing／Contextualization／CCOT／Comparison 回饋表，以及 Causation、CCOT、Claim Testing 課程活動改作（<a href="https://www.oerproject.com/" target="_blank" rel="noopener">oerproject.com</a>，工具與回饋表以 <a href="https://creativecommons.org/licenses/by/4.0/deed.zh-hant" target="_blank" rel="noopener">CC BY 4.0</a> 授權）。本網站已翻譯為繁體中文，改為逐步點選的自學形式，換成臺灣在地案例，並把原本的書寫題簡化為選擇題。部分步驟為本網站新增，例如脈絡化的「不算脈絡」、比較的一手史料與「說法不一」題、論點檢驗的 AI 範例；論點檢驗與能力總覽的分級為本網站自訂，非 OER 原版回饋表。</p>
+    <p><b>關於這個網站</b>　六個任務依據 OER Project 的歷史思考技能指南 <a href="https://www.oerproject.com/OER-Materials/OER-Media/HTML-Articles/Teacher-Resources/Historical-Thinking-Skills-Guide" target="_blank" rel="noopener">Historical Thinking Skills Guide</a>、Sourcing／Contextualization／Causation／Comparison 工具、Sourcing／Contextualization／CCOT／Comparison 回饋表，以及 Causation、CCOT、Claim Testing 課程活動改作（工具與回饋表以 <a href="https://creativecommons.org/licenses/by/4.0/deed.zh-hant" target="_blank" rel="noopener">CC BY 4.0</a> 授權）。本網站已翻譯為繁體中文，改為逐步點選的自學形式，換成臺灣在地案例，並把原本的書寫題簡化為選擇題。部分步驟為本網站新增，例如脈絡化的「不算脈絡」、比較的一手史料與「說法不一」題、論點檢驗的 AI 範例；論點檢驗與能力總覽的分級為本網站自訂，非 OER 原版回饋表。</p>
     <p><b>史料</b>　陳培桂《淡水廳志》卷四（1871）；《漢文臺灣日日新報》1908 年 1 月 14 日〈昨年臺灣茶（一）〉、7 月 28 日〈包種近況〉；連橫《臺灣通史》卷二十七；《臺灣總督府檔案事典》〈製茶試驗場〉。</p>
     <p><b>研究與說明資料</b>　臺北市文山區公所《文山區志》卷四第五章；溫振華〈木柵茶史〉（2001）；廖紫均〈地方特色茶與茶產業的延續與傳承〉（2014）；張榕紜《木柵茶農生活世界的探究》（2009）；黃柏鈞〈農業遊憩品牌的象徵鬥爭場域初探：以坪林茶產業為例〉（2022）；國家文化記憶庫相關條目；維基百科〈臺灣日日新報〉。</p>
-    <p><b>製作與分工</b>　本網站由國立政治大學圖書館與 AI 助理 Claude（Anthropic）合作製作。<b>圖書館</b>負責教學目標與整體方向、選定案例、提供 OER Project 原始素材與史料（含資料庫檢索與全文）、決定取捨，並審閱全部內容與查核結果。<b>Claude</b> 依指示提出網站設計、撰寫程式與題目文字、從圖書館提供及公開可取得的資料中整理史實與照錄史料、進行引用查核與爭議用語檢視，所有修改都經圖書館確認。網站中「歷史學家怎麼想」的回饋是教學判斷，不是史料本身；如發現錯誤，歡迎告知國立政治大學圖書館。</p>
+    <p><b>製作與分工</b>　本網站由國立政治大學圖書館與 AI 助理 Claude（Anthropic）合作製作，於 2026 年 10 月使用 Claude Opus 5.5（medium）完成。<b>圖書館</b>負責教學目標與整體方向、選定案例、提供 OER Project 原始素材與史料（含資料庫檢索與全文）、決定取捨，並審閱全部內容與查核結果。<b>Claude</b> 依指示提出網站設計、撰寫程式與題目文字、從圖書館提供及公開可取得的資料中整理史實與照錄史料、進行引用查核與爭議用語檢視，所有修改都經圖書館確認。網站中的引導說明是教學判斷，不是史料本身；如發現錯誤，歡迎告知國立政治大學圖書館。</p>
     <p><b>史料包與查核紀錄</b>　史料原文照錄、出處、資料矛盾整理、引用查核報告與建議追查的一手史料，請見 <a href="https://github.com/mookrue/muzha-tea-thinking/tree/main/sources" id="srcLink" target="_blank" rel="noopener">史料包</a>。網站不收集任何資料，作答只存在你自己的瀏覽器。</p>
   </footer>
 </div>
@@ -257,17 +264,17 @@ const EVENT_INTRO = `<div class="event"><span class="yr">1895–1896 年</span><
 /* ============ quests ============ */
 const QUESTS = [
 { id:"src", glyph:"源", title:"這份報導可以信多少？", skill:"史料考證 Sourcing", mins:6,
-  intro:"讀一篇 1908 年的報紙，用歷史學家的 HAPPY 五問來考證它。",
+  intro:"讀一篇 1908 年的報紙，用 HAPPY 五問來考證它。",
   steps:[
   {type:"read", task:"先讀一小段 1908 年的報紙", body:()=>`
      <p>這是日治時期報紙上的一篇茶市回顧。不用全部看懂，只要抓住三件事：<b>誰說的、說了什麼、什麼時候說的</b>。</p>${sourceHTML(SRC.paper1908)}
-     <p class="hint">接下來會用五個問題來考證它，歷史學家稱為 <b>HAPPY</b>：歷史脈絡、讀者、目的、觀點、重要性。</p>`},
-  {type:"choice", tag:"H 歷史脈絡", task:"這篇報導回顧的是哪一年的茶市？", body:()=>sourceHTML(SRC.paper1908,{noGloss:true}),
+     <p class="hint">接下來會用五個問題來考證它，簡稱 <b>HAPPY</b>：歷史脈絡、讀者、目的、觀點、重要性。</p>`},
+  {type:"choice", tag:"H 歷史脈絡", task:"這篇報導回顧的是哪一年的茶市？",
    options:[
     {t:"1908 年", v:"no", fb:"報紙是 1908 年 1 月登的，但那時才剛過完年。文中的「四十年」是明治 40 年，也就是 1907 年。"},
     {t:"1907 年", v:"ok", fb:"沒錯。「四十年」是明治 40 年（1907）。報導在 1908 年 1 月刊出，回顧的是前一年的茶季。"},
     {t:"1840 年", v:"no", fb:"「四十年」不是西元 1840 年，而是日本年號明治 40 年，也就是 1907 年。"}],
-   think:"讀史料的第一步：先把年代換算清楚。日治史料常用日本年號，清代用皇帝年號，民國用民國紀年。OER 的「歷史脈絡」還會追問：作者所在的地方、當時發生的事件，如何影響這份史料？"},
+   think:"讀史料的第一步：先把年代換算清楚。日治史料常用日本年號，清代用皇帝年號，民國用民國紀年。「歷史脈絡」還要追問：作者所在的地方、當時發生的事件，如何影響這份史料？"},
   {type:"choice", tag:"P 觀點", task:"報導的副標是「大庭茶商公會顧問談」，也就是大庭茶商公會一位顧問的談話。你覺得他最關心什麼？",
    options:[
     {t:"茶價、洋行訂單和外銷生意", v:"ok", fb:"對。他是大庭茶商公會的顧問，站在茶商的角度，所以整篇都在談價格、訂單和輸出，幾乎沒提到種茶的人。"},
@@ -285,14 +292,14 @@ const QUESTS = [
     {t:"教讀者怎麼種茶、製茶", v:"no", fb:"文中沒有談種植或製作的方法，談的是買賣與價格。"},
     {t:"宣傳政府的茶業政策", v:"mid", fb:"可以保持這個警覺，但這篇的內容沒有提到政策，主要目的還是市況報告。"}]},
   {type:"sort", tag:"Y 重要性", task:"這份報導能幫我們回答哪些問題？把每個問題放進對的框。",
-   hint:"點一個問題，再點要放的框。放下去之後，會看到歷史學家的看法。",
+   hint:"點一個問題，再點要放的框。放下去之後，會看到說明。",
    buckets:[{id:"yes",label:"能回答",sub:"這是它的價值"},{id:"no",label:"回答不了",sub:"這是它的限制"}], cols:true,
    items:[
     {id:"y1", t:"1907 年，包種茶和烏龍茶哪一種生意比較好？", ok:["yes"], fb:"能。文中明說包種茶「商狀尤一層良好」，烏龍茶則受美國訂單影響。"},
     {id:"y2", t:"臺灣茶主要賣到哪些地方？", ok:["yes"], fb:"能。文中提到美國、德國的訂購商，以及南洋。"},
     {id:"y3", t:"木柵的茶農那一年過得好不好？", ok:["no"], fb:"回答不了。文中沒有提到木柵，也沒有茶農的聲音。要找其他史料，例如口述訪談。"},
     {id:"y4", t:"鐵觀音是什麼時候引進木柵的？", ok:["no"], fb:"回答不了。這篇談的是包種茶和烏龍茶，沒有提到鐵觀音。"}],
-   think:"OER 的「重要性（WhY）」問三件事：這份史料的主旨是什麼？哪些部分最有價值？它的限制在哪裡？這篇的主旨是回顧 1907 年各季的茶市行情。",
+   think:"「重要性（WhY）」問三件事：這份史料的主旨是什麼？哪些部分最有價值？它的限制在哪裡？這篇的主旨是回顧 1907 年各季的茶市行情。",
 },
   {type:"choice", tag:"換一份史料", task:"《文山區志》說張迺妙 1895 年先帶回 12 株、1896 年正式引進鐵觀音。看看它的註腳：這段主要是根據什麼寫的？可能有什麼問題？", body:()=>sourceHTML(SRC.quzhi),
    options:[
@@ -310,15 +317,15 @@ const QUESTS = [
   steps:[
   {type:"read", task:"脈絡，就是事件周圍的世界", body:()=>`${EVENT_INTRO}
      <p>張迺妙為什麼會去安溪？為什麼想把新茶種帶回木柵？要回答這些，得先看看當時的世界。</p>
-     <p>歷史學家用<b>漏斗</b>來想：上面寬的是<b>廣泛脈絡</b>（大時代、大範圍），往下收窄是<b>狹窄脈絡</b>（在地、時間很接近），最下面才是事件本身。</p>`},
+     <p>可以用<b>漏斗</b>來想：上面寬的是<b>廣泛脈絡</b>（大時代、大範圍），往下收窄是<b>狹窄脈絡</b>（在地、時間很接近），最下面才是事件本身。</p>`},
   {type:"sort", funnel:true, task:"把每張卡片放進漏斗。發生在事件之後的，放進「不算脈絡」（這一格是本網站加的，用來練習避免倒果為因）。",
-   hint:"點一張卡片，再點要放的位置。放好會立刻看到歷史學家的看法，可以再移動。",
+   hint:"點一張卡片，再點要放的位置。放好會立刻看到說明，可以再移動。",
    buckets:[{id:"broad",label:"廣泛脈絡",sub:"範圍大、時間長"},{id:"narrow",label:"狹窄脈絡",sub:"在木柵、時間接近"},{id:"after",label:"不算脈絡",sub:"發生在事件之後"}],
    items:[
     {id:"c1", yr:"1860 年代", t:"淡水開港，洋商來臺，北臺灣的茶經由洋行賣到海外。", src:"溫振華 2001", ok:["broad"], fb:"廣泛脈絡。開港把整個北臺灣捲入世界貿易，茶才有利可圖。"},
     {id:"c2", yr:"1869 年起", t:"臺灣烏龍茶運到美國，大受歡迎。", src:"溫振華 2001；《臺灣通史》", ok:["broad"], fb:"廣泛脈絡。這是區域層級的大趨勢：種茶能賺錢。"},
     {id:"c3", yr:"1895–1896 年", t:"臺灣割讓給日本，總督府開始調查茶業，1896 年 4 月獲准設立製茶試驗場。", src:"《臺灣總督府檔案事典》", ok:["broad","narrow"], fb:"多數人會放在廣泛脈絡（政權更替影響全島）。它和引進同年，說是狹窄脈絡也可以，重點是說得出理由。"},
-    {id:"c4", yr:"道光年間起", t:"石碇、拳山（後稱文山）二堡的居民多以種茶為業，道光年間已有商人運茶到福州販售。", src:"《淡水廳志》1871", ok:["narrow"], fb:"狹窄脈絡。木柵一帶早有種茶的傳統，鐵觀音不是落在一片空白上。"},
+    {id:"c4", yr:"道光年間起", t:"石碇、拳山（後稱文山）二堡的居民多以種茶為業，道光年間已有商人運茶到福州販售。", src:"《淡水廳志》1871", ok:["narrow","broad"], fb:"木柵一帶早有種茶的傳統，鐵觀音不是落在一片空白上。範圍在木柵附近，放狹窄脈絡較貼切；因為時間很長，放廣泛也說得通。"},
     {id:"c5", yr:"1770 年代起", t:"來自福建安溪的移民陸續到木柵開墾，有人帶來茶種。", src:"溫振華 2001", ok:["narrow","broad"], fb:"放狹窄脈絡最貼切：它說明木柵和安溪的淵源，張迺妙「返鄉祭祖」回的正是安溪。因為時間很長，放廣泛也說得通。"},
     {id:"c6", yr:"1875 年生", t:"張迺妙的繼父是唐山茶師（從中國大陸來的茶師），他的製茶技藝傳自繼父。", src:"《文山區志》", ok:["narrow"], fb:"狹窄脈絡。引進者本身懂茶，才會注意到鐵觀音的好。"},
     {id:"c7", yr:"1980 年", t:"木柵觀光茶園成立，初期 53 戶參加。", src:"溫振華 2001", ok:["after"], fb:"不算脈絡。這是將近一百年後的事。用後來的結果解釋當時的事件，是常見的陷阱。"}]},
@@ -338,31 +345,31 @@ const QUESTS = [
   {type:"read", task:"一個有趣的問題", body:()=>`<div class="event"><span class="yr">約 1895 – 1980 年代</span><b>鐵觀音成為木柵的招牌茶</b></div>
      <p>你知道嗎？木柵最早出名的其實是<b>包種茶</b>（《文山區志》）。據《文山區志》，張迺妙 1916 年得到的總督特等金牌，也是包種茶比賽（也有資料說是鐵觀音，任務 5 會處理這個矛盾）。</p>
      <p>那鐵觀音是怎麼一步步變成木柵的代表的？這一關要找出不同時間的原因。</p>`},
-  {type:"sort", key:"bands", task:"這些原因，各屬於長期、中期還是短期？", hint:"長期：事件很久以前就存在的條件。中期：中間幾十年的發展。短期：最接近結果、直接推了一把的因素。",
+  {type:"sort", key:"bands", open:true, task:"這些原因，各屬於長期、中期還是短期？這題沒有標準答案，重點是你的理由。", hint:"長期：事件很久以前就存在的條件。中期：中間幾十年的發展。短期：最接近結果、直接推了一把的因素。這個事件本身就橫跨將近一百年，所以分法會因人而異。",
    buckets:[{id:"long",label:"長期原因",sub:"很久以前就存在"},{id:"mid",label:"中期原因",sub:"中間的發展"},{id:"short",label:"短期原因",sub:"最接近、直接推動"}], cols:true,
    items:[
-    {id:"k5", yr:"1770 年代起", t:"安溪移民在木柵開墾，帶來種茶傳統。", src:"溫振華 2001", ok:["long"], fb:"長期原因。它讓木柵有種茶的人和技術。"},
-    {id:"k2", yr:"1860 年代", t:"淡水開港，茶葉外銷興盛。", src:"溫振華 2001", ok:["long"], fb:"長期原因。它讓種茶成為有利可圖的產業。"},
-    {id:"k0", yr:"1895–1896", t:"張迺妙從安溪引進鐵觀音茶苗。", src:"《文山區志》", ok:["mid","long"], fb:"多數人放中期。少了它就沒有鐵觀音，但光有茶苗還不夠。"},
-    {id:"k14", yr:"1937 年", t:"張迺妙回安溪學會鐵觀音的製茶要領，教給木柵茶農。", src:"《文山區志》", ok:["mid"], fb:"中期原因。有了茶苗卻不會製作，直到這時技術才到位。"},
-    {id:"k16", yr:"戰後", t:"茶園遭嚴重蟲害，木柵農會請茶業改良場人員舉辦栽培、病蟲害防治與製茶講習。", src:"《文山區志》", ok:["short","mid"], fb:"放短期或中期都可以。它讓茶農的鐵觀音技術大幅提升。"},
-    {id:"k17", yr:"1974／75 起", t:"農會開始舉辦優良鐵觀音比賽。", src:"《文山區志》；張榕紜 2009", ok:["short"], fb:"短期原因。比賽讓「好鐵觀音」有了標準，也有了名氣。"},
-    {id:"k9", yr:"1980 年", t:"臺北市成立木柵觀光茶園。", src:"溫振華 2001", ok:["short"], fb:"短期原因。觀光把鐵觀音和木柵牢牢綁在一起。"}]},
-  {type:"sort", tag:"類型", task:"OER 的因果工具還要替每個原因標上「類型」。這些原因各屬於哪一類？", hint:"一個原因可以有不只一種類型，放進你覺得最主要的那一類就好。",
+    {id:"k5", yr:"1770 年代起", t:"安溪移民在木柵開墾，帶來種茶傳統。", src:"溫振華 2001", ok:["long"], fb:"它在鐵觀音引進前一百多年就存在，提供了種茶的人和技術，一般會看作長期條件。"},
+    {id:"k2", yr:"1860 年代", t:"淡水開港，茶葉外銷興盛。", src:"溫振華 2001", ok:["long"], fb:"開港讓種茶有利可圖，比鐵觀音引進早約三十年，一般會看作長期條件。"},
+    {id:"k0", yr:"1895–1896", t:"張迺妙從安溪引進鐵觀音茶苗。", src:"《文山區志》", ok:["mid","long"], fb:"它是整個過程的起點。放長期或中期，取決於你把「事件」的起點定在哪裡。"},
+    {id:"k14", yr:"1937 年", t:"張迺妙回安溪學會鐵觀音的製茶要領，教給木柵茶農。", src:"《文山區志》", ok:["mid"], fb:"它在引進四十多年後才發生，讓技術到位。你會把它看成中期的發展，還是關鍵的轉折？"},
+    {id:"k16", yr:"戰後", t:"茶園遭嚴重蟲害，木柵農會請茶業改良場人員舉辦栽培、病蟲害防治與製茶講習。", src:"《文山區志》", ok:["short","mid"], fb:"它讓茶農的技術大幅提升，時間離 1980 年代還有一段距離。"},
+    {id:"k17", yr:"1974／75 起", t:"農會開始舉辦優良鐵觀音比賽。", src:"《文山區志》；張榕紜 2009", ok:["short"], fb:"比賽讓「好鐵觀音」有了標準和名氣，時間上最接近結果。"},
+    {id:"k9", yr:"1980 年", t:"臺北市成立木柵觀光茶園。", src:"溫振華 2001", ok:["short"], fb:"觀光讓更多人把鐵觀音和木柵連在一起。有人會說它就是「成為招牌」本身，而不是原因，這也值得討論。"}]},
+  {type:"sort", tag:"類型", open:true, task:"替每個原因標上「類型」。這些原因各屬於哪一類？", hint:"一個原因常常有不只一種類型，放進你覺得最主要的那一類就好，沒有標準答案。",
    buckets:[{id:"pol",label:"P 政治",sub:""},{id:"eco",label:"$ 經濟",sub:""},{id:"soc",label:"S 社會",sub:""},{id:"cul",label:"C 文化",sub:""},{id:"inn",label:"I 創新",sub:"新技術、新方法"},{id:"env",label:"E 環境",sub:""}], cols:true,
    items:[
-    {id:"t1", t:"文山一帶丘陵遍布、冬春多雨，適合種茶", src:"《文山區志》", ok:["env"], fb:"環境。地形和氣候是茶能在這裡生長的條件。"},
-    {id:"t2", t:"安溪移民到木柵開墾，帶來茶種", src:"溫振華 2001", ok:["soc","cul"], fb:"社會（移民）。也可以說是文化（帶來原鄉的種茶傳統）。"},
-    {id:"t3", t:"淡水開港，茶葉外銷興盛", src:"溫振華 2001", ok:["eco","pol"], fb:"經濟（外銷市場）。開港本身是戰敗後的條約結果，所以也帶有政治因素。"},
-    {id:"t4", t:"1937 年學會鐵觀音的製茶要領", src:"《文山區志》", ok:["inn"], fb:"創新。新的製茶技術。"},
-    {id:"t5", t:"1980 年臺北市成立觀光茶園", src:"溫振華 2001", ok:["pol","eco"], fb:"政治（市府政策），同時是經濟上的轉型。"}]},
+    {id:"t1", t:"文山一帶丘陵遍布、冬春多雨，適合種茶", src:"《文山區志》", ok:["env"], fb:"地形和氣候屬於環境條件。"},
+    {id:"t2", t:"安溪移民到木柵開墾，帶來茶種", src:"溫振華 2001", ok:["soc","cul"], fb:"移民是社會現象；帶來原鄉的種茶傳統，也可以算文化。"},
+    {id:"t3", t:"淡水開港，茶葉外銷興盛", src:"溫振華 2001", ok:["eco","pol"], fb:"外銷市場是經濟因素；開港本身是清廷戰敗後的結果，也帶有政治因素。"},
+    {id:"t4", t:"1937 年學會鐵觀音的製茶要領", src:"《文山區志》", ok:["inn"], fb:"新的製茶技術屬於創新；它也是靠安溪的人際網絡學來的，也可以從社會的角度看。"},
+    {id:"t5", t:"1980 年臺北市成立觀光茶園", src:"溫振華 2001", ok:["pol","eco"], fb:"市府政策是政治因素，同時也是經濟上的轉型。"}]},
   {type:"map", task:"看看你排出來的因果圖", hint:"箭頭都指向同一個結果。注意：沒有任何一個原因能單獨解釋它。"},
   {type:"choice", task:"如果只能選一個「最直接」把鐵觀音推成招牌的原因，你會選哪個？",
    options:[
-    {t:"1895–1896 年引進茶苗", v:"mid", fb:"它是必要條件：沒有茶苗就沒有鐵觀音。但引進後很長一段時間，木柵最出名的仍是包種茶，而且還沒掌握鐵觀音的製法。"},
-    {t:"1937 年學會製茶要領", v:"mid", fb:"這是技術上的關鍵。不過日治末期戰爭使茶業低潮，技術還沒來得及變成名氣。"},
-    {t:"1974 年起的鐵觀音比賽與 1980 年觀光茶園", v:"ok", fb:"人類學者廖紫均（2014）有類似看法：她認為鐵觀音作為地方象徵，是在戰後農會推廣、比賽茶制度與市場需求下，「短短幾年塑造出來的」。"}],
-   think:"這題沒有唯一答案。OER 的因果工具把原因的角色分成三種：觸發事件（最直接的原因）、必要原因（少了就不會發生）、相關原因（有影響但不是必要）。重點是說得出理由。"},
+    {t:"1895–1896 年引進茶苗", v:"ok", fb:"說得通：它是必要條件，沒有茶苗就沒有鐵觀音。不過引進後很長一段時間，木柵最出名的仍是包種茶，而且還沒掌握鐵觀音的製法。"},
+    {t:"1937 年學會製茶要領", v:"ok", fb:"說得通：這是技術上的關鍵。不過日治末期戰爭使茶業陷入低潮，技術還沒來得及變成名氣。"},
+    {t:"1974 年起的鐵觀音比賽與 1980 年觀光茶園", v:"ok", fb:"說得通。廖紫均（2014）有類似看法，認為鐵觀音作為地方象徵，是在戰後農會推廣、比賽茶制度與市場需求下，「短短幾年塑造出來的」。這是一篇研究的觀點，不是定論。"}],
+   think:"這題沒有唯一答案。原因的角色可以分成三種：觸發事件（最直接的原因）、必要原因（少了就不會發生）、相關原因（有影響但不是必要）。重點是說得出理由。<br><b>選定之後，下一步：</b>你選的這條路是一個「假設」，接下來要去找更多相關資料來證明它。例如選「比賽與觀光茶園」，就去查 1970–80 年代的報紙報導、農會與比賽紀錄、茶農口述；選「引進茶苗」，就要找當時的茶葉產量或報導，看引進後木柵的茶業是否真的因此改變。也要留意有沒有反對你的資料。"},
   {type:"choice", tag:"結果", task:"因果分析也要看「結果」。鐵觀音成為招牌之後，下面哪一項是它帶來的結果？",
    options:[
     {t:"觀光茶園的示範農戶，從初期 53 戶增加到 1990 年的 85 戶", v:"ok", fb:"對（張榕紜 2009，引鄭素琴 1991）。《文山區志》也說觀光茶園「使更多茶農投入鐵觀音的種植」。結果也會變成新的原因：投入的人越多，鐵觀音越出名。"},
@@ -372,8 +379,8 @@ const QUESTS = [
    rows:[["1916 年包種茶得獎","影響張迺妙個人名聲","讓他受聘為茶師，有影響力","據《文山區志》，得獎的是包種茶"],
          ["1980 年觀光茶園","初期 53 戶茶農，1990 年增至 85 戶，加上臺北市民遊客","改變茶農收入來源與經營方式","持續到今天，貓空仍是品茗觀光地"]],
    options:[
-    {t:"1916 年得獎比較重要", v:"mid", fb:"它建立了張迺妙的權威，間接幫助鐵觀音推廣；但從影響人數和持續時間看，比不上觀光茶園。"},
-    {t:"1980 年觀光茶園比較重要", v:"ok", fb:"從數量（A）、深度（D）、持續（E）三方面看，觀光茶園影響更廣、更深、也更久。"}]},
+    {t:"1916 年得獎比較重要", v:"mid", fb:"也說得通，如果你重視張迺妙個人的影響力。不過要注意，據《文山區志》，這次得獎的是包種茶；而從影響人數和持續時間看，觀光茶園的範圍更大。"},
+    {t:"1980 年觀光茶園比較重要", v:"ok", fb:"從數量（A）和持續（E）看，觀光茶園影響的人更多、時間更久。深度（D）則可以討論：它改變了茶農的收入方式。"}]},
   {type:"reflect", task:"（選填）你認為鐵觀音成為招牌，最重要的一個原因是什麼？為什麼？", model:"我認為是 1980 年的觀光茶園，因為它讓大量臺北遊客把「木柵」和「鐵觀音」連在一起，而且影響持續到今天；不過如果沒有 1937 年學會製法，也就沒有好鐵觀音可以推廣。"},
   {type:"done", cheat:[["長","長期原因：很早就存在的條件"],["中","中期原因：中間的發展"],["短","短期原因：直接推動的因素"],["ADE","數量、深度、持續：判斷哪個原因比較重要"]]}
   ]},
@@ -383,22 +390,22 @@ const QUESTS = [
   steps:[
   {type:"read", task:"看板怎麼用？", body:()=>`<p>這一關觀察的時期是 <b class="mono">c. 1860 – c. 2010</b>。</p>
      <p>看板有兩個方向：<b>左右</b>是「延續（沒變）」還是「變遷（變了）」，<b>上下</b>是「正面」還是「負面」。越靠邊代表程度越強。</p>
-     <p>看一個例子：「茶工、茶苗和製茶技術，一再從安溪來到臺北」。從清末的茶工「春至冬返」到 1937 年張迺妙學製法，這是長期<b>延續</b>，而且對木柵茶業大致<b>正面</b>，所以放在左上。</p>`, demo:true},
-  {type:"board", task:"把六張便利貼放上看板", hint:"一次放一張：直接點看板上你覺得對的位置。放下後，虛線框會顯示歷史學家的參考位置。想換順序，可以先點別張便利貼。",
+     <p>看一個例子：「茶工、茶苗和製茶技術，一再從安溪來到臺北」。從清末的茶工「春至冬返」到 1937 年張迺妙學製法，這是長期<b>延續</b>，所以放在左邊。上下要放多高，就看你認為它對木柵茶業的影響是好是壞，這部分沒有標準答案。</p>`, demo:true},
+  {type:"board", task:"把六張便利貼放上看板", hint:"一次放一張：直接點看板上你覺得對的位置。放下後會看到資料怎麼說，以及判斷正負時可以想的問題。想換順序，可以先點別張便利貼。",
    items:[
-    {id:"n5", t:"用比賽評鑑茶葉：1916 年勸業共進會、1974 年起鐵觀音比賽", rx:.25, ry:.28, fb:"延續、偏正面。比賽評茶的做法從日治延續到戰後，一直推動品質提升。"},
-    {id:"n12", t:"茶價受國際因素左右（1907 年爪哇關稅、1970 年代外銷受阻）", rx:.2, ry:.72, fb:"延續、偏負面。一百多年來，茶農的收入一直受國際市場擺布。"},
-    {id:"n2", t:"招牌茶從包種茶變成鐵觀音", rx:.78, ry:.3, fb:"變遷、偏正面：讓木柵有了獨特招牌。但也有人會問：對原本專精包種茶的茶農呢？"},
-    {id:"n6", t:"日治末期戰爭，官方獎勵改種稻米，茶園荒廢", rx:.72, ry:.82, fb:"變遷、負面。戰爭讓茶業陷入低潮。"},
-    {id:"n7", t:"1980 年起，茶園從生產轉向觀光休閒", rx:.85, ry:.22, fb:"變遷，對多數茶農是正面的。不過廖紫均（2014）也指出，後來茶園面積縮小、年輕人不願接手。"},
-    {id:"n3", t:"市場從外銷轉向 1975 年後的內銷", rx:.7, ry:.55, fb:"變遷，正負參半：外銷萎縮是壞消息，但國內喝茶的人變多，撐住了產業。"}]},
+    {id:"n5", t:"用比賽評鑑茶葉：1916 年勸業共進會、1974 年起鐵觀音比賽", rx:.25, ry:.28, fb:"正負可以這樣想：比賽推動品質提升；但黃柏鈞（2022）也記錄了茶農對比賽評審標準的爭議。"},
+    {id:"n12", t:"茶價受國際因素左右（1907 年爪哇關稅、1970 年代外銷受阻）", rx:.2, ry:.72, fb:"正負可以這樣想：市場起伏讓收入不穩定；但國際市場也曾帶來大量外銷收入。"},
+    {id:"n2", t:"招牌茶從包種茶變成鐵觀音", rx:.78, ry:.3, fb:"正負可以這樣想：木柵有了獨特的招牌；但對原本專精包種茶的茶農呢？"},
+    {id:"n6", t:"日治末期戰爭，官方獎勵改種稻米，茶園荒廢", rx:.72, ry:.82, fb:"正負可以這樣想：對茶農幾乎都是損失；但從官方要增產糧食的角度，又是怎麼看的？"},
+    {id:"n7", t:"1980 年起，茶園從生產轉向觀光休閒", rx:.85, ry:.22, fb:"正負可以這樣想：茶農多了新的收入來源；但廖紫均（2014）也指出，後來茶園面積縮小、年輕人不願接手。"},
+    {id:"n3", t:"市場從外銷轉向 1975 年後的內銷", rx:.7, ry:.55, fb:"正負可以這樣想：外銷萎縮是壞消息；但國內需求增加，撐住了產業（廖紫均 2014）。"}]},
   {type:"stats", task:"你的看板說了什麼？"},
-  {type:"choice", tag:"歷史意義", task:"OER 的延續與變遷活動會問：這段時期「最重要的變遷」是哪一個？用 ADE（數量、深度、持續）想想看。",
+  {type:"choice", tag:"歷史意義", task:"這段時期「最重要的變遷」是哪一個？用 ADE（數量、深度、持續）想想看。",
    options:[
     {t:"1980 年起，茶園從生產轉向觀光休閒", v:"ok", fb:"說得通：影響許多茶農的收入方式（數量、深度），而且持續到今天（持續）。"},
     {t:"日治末期戰爭，茶園荒廢", v:"ok", fb:"也說得通：影響很深，很多人不再種茶。不過從「持續」來看，戰後茶業又慢慢恢復了。"},
     {t:"招牌茶從包種茶變成鐵觀音", v:"ok", fb:"也說得通：它改變了木柵的地方形象，而且持續至今。但它影響的深度，可能不如收入方式的改變。"}],
-   think:"這題沒有標準答案。歷史意義看的是你能不能用數量、深度、持續三個面向說出理由。"},
+   think:"這題沒有標準答案。歷史意義看的是你能不能用數量、深度、持續三個面向說出理由。<br><b>選定之後，下一步：</b>你選的這個變遷就是你論點的主軸，接下來要找更多資料來證明它：找變遷前後兩個時間點的資料來對照（例如不同年代的茶園面積、茶農人數、報紙報導、茶農口述），也找看看有沒有反例。"},
   {type:"choice", task:"哪一句最能回答：「這段時期木柵茶業的變遷，在多大程度上是正面的？」",
    options:[
     {t:"木柵茶業的變化很多。", v:"no", fb:"這句沒有回答「在多大程度上」，也沒說是好是壞。"},
@@ -414,7 +421,7 @@ const QUESTS = [
   steps:[
   {type:"read", task:"有人問 AI：「木柵鐵觀音是什麼時候引進的？」", body:()=>`
      <div class="source"><div class="meta"><span class="kind">待檢驗的說法</span><span>AI 回答範例（為練習設計）</span></div><div class="txt"><p>「木柵鐵觀音是張迺妙在 1875 年從安溪引進的。」</p></div></div>
-     <p>歷史學家檢驗一個說法，會用四種方法：</p>
+     <p>檢驗一個說法，可以用四種方法：</p>
      <div class="cheat"><b>直覺</b><span>聽起來對嗎？我的直覺從哪來？</span><b>權威</b><span>說的人是誰？可信嗎？</span><b>邏輯</b><span>推論合不合理？</span><b>證據</b><span>有什麼史料支持或反對？</span></div>
      <p class="hint">直覺和權威只是起點，最後要靠邏輯和證據。</p>`},
   {type:"choice", tag:"權威", task:"AI 聊天機器人，算是可靠的權威嗎？",
@@ -422,7 +429,7 @@ const QUESTS = [
     {t:"算，AI 讀過很多資料", v:"no", fb:"AI 讀過很多資料，但它可能把不同資料混在一起，而且通常不會告訴你根據哪一份。"},
     {t:"不一定，要看它根據什麼", v:"ok", fb:"對。無論是 AI、網站還是書，都要問：它的根據是什麼？能不能回頭查？"},
     {t:"完全不能用", v:"mid", fb:"太極端了。AI 可以當成找線索的起點，只是不能當成最後的證據。"}]},
-  {type:"sort", tag:"證據", task:"這些資料，支持還是反對 AI 的說法？", hint:"OER 的論點檢驗活動會要求為一個說法寫「支持陳述」和「反論」。這裡先練習：哪些證據支持它、哪些反對它？點一張資料卡，再點要放的框。",
+  {type:"sort", tag:"證據", task:"這些資料，支持還是反對 AI 的說法？", hint:"檢驗一個說法，要同時找支持它和反對它的證據。哪些證據支持、哪些反對？點一張資料卡，再點要放的框。",
    buckets:[{id:"pro",label:"支持",sub:""},{id:"con",label:"反對",sub:""},{id:"off",label:"無關",sub:"講的不是這件事"}], cols:true,
    items:[
     {id:"e1", yr:"文山區志", t:"張迺妙，光緒元年（1875）生於大崎腳。", src:"《文山區志》", ok:["con"], fb:"反對。1875 年是張迺妙出生的年份，不是引進的年份。"},
@@ -459,7 +466,7 @@ const QUESTS = [
        <div><span class="n">案例一</span><b>木柵鐵觀音</b><span class="small muted">臺北市文山區。1895–1896 年張迺妙從安溪引進茶苗，1937 年學會製法；1980 年成立全臺第一個觀光茶園。</span></div>
        <div><span class="n">案例二</span><b>坪林（文山）包種茶</b><span class="small muted">新北市坪林區。包種茶原本是加花薰香、外銷南洋的茶，後來改良成不加花的「文山包種茶」；茶是坪林最主要的產業。</span></div>
      </div>
-     <p>兩地都在北臺灣的「文山」茶區：不加花的包種茶製法傳到文山一帶後，深坑、石碇、木柵、新店、坪林都廣植茶樹（國家文化記憶庫）。比較時，歷史學家會問四件事：<b>哪裡相似？哪裡不同？為什麼？這些異同有什麼意義？</b></p>`},
+     <p>兩地都在北臺灣的「文山」茶區：不加花的包種茶製法傳到文山一帶後，深坑、石碇、木柵、新店、坪林都廣植茶樹（國家文化記憶庫）。比較時可以問四件事：<b>哪裡相似？哪裡不同？為什麼？這些異同有什麼意義？</b></p>`},
   {type:"choice", tag:"一手史料", task:"先看看 1908 年的包種茶。它和今天的文山包種茶，最大的不同是什麼？",
    body:()=>`<div class="source"><div class="meta"><span class="kind">一手史料・報紙</span><span>《漢文臺灣日日新報》</span><span>1908 年 7 月 28 日〈包種近況〉</span></div>
      <div class="txt"><p>包種茶俗稱花茶。其銷售地以南洋為主。……此茶最近二三年間輸出頓增。三十八年二百九十萬斤。三十九年三百二十萬斤。昨年則三百六十萬斤。……其製焙之法。向皆以善薄八斤。茉莉五斤。四英三斤。推身九斤。泡為一處。……今則茉莉大加四英亦略增。……故其香益烈。</p></div>
@@ -482,7 +489,7 @@ const QUESTS = [
     {id:"m7", t:"位在水庫集水區，近年發展有機茶與青年返鄉品牌", ok:["bz"], fb:"坪林。坪林在翡翠水庫集水區，「水源」成為地方形象的一部分，也帶動有機耕作（黃柏鈞 2022）。"}]},
   {type:"choice", tag:"相似的原因", task:"為什麼兩地都在 1926 年前後成立地方茶業組織？",
    options:[
-    {t:"日治時期官方推動產業組合、會社等制度，用組織來改良和推廣產業", v:"ok", fb:"對。1914 年日本政府公布「臺灣重要物產同業組合法」（黃柏鈞 2022），1918 年木柵成立信用組合（張榕紜 2009），兩地的組織都和日治時期推動產業組織的政策有關。相似往往有共同的原因。"},
+    {t:"日治時期官方推動產業組合、會社等制度，用組織來改良和推廣產業", v:"ok", fb:"對。1914 年日本政府公布「臺灣重要物產同業組合法」（黃柏鈞 2022），1918 年木柵成立信用組合（張榕紜 2009），兩地的組織很可能都和日治時期推動產業組織的政策有關（這是推論，資料沒有直接說明兩者的關係）。相似往往有共同的原因。"},
     {t:"純屬巧合", v:"no", fb:"時間這麼接近，通常值得找共同原因。兩地都受到日治時期同一套產業政策的影響。"},
     {t:"兩地茶農約好一起成立", v:"mid", fb:"資料裡沒有看到這樣的證據。比較時，要用證據解釋相似，而不是猜測。"}]},
   {type:"choice", tag:"相異的原因", task:"為什麼後來木柵發展成觀光茶園，坪林卻走向有機和青年品牌？",
@@ -496,12 +503,12 @@ const QUESTS = [
     {t:"它們講的可能是不同階段：加花的包種茶，和後來不加花的條形包種茶", v:"ok", fb:"這是很好的思考。先分清楚「包種茶」在不同時代指的是什麼，很多矛盾就能理清。至於人名寫法不同（吳福老、吳福源），還需要回到原始史料查證。"},
     {t:"一定是最早的那一個才對", v:"mid", fb:"「最早」也要有證據。而且這些說法可能根本不是在講同一種茶。"},
     {t:"說法太多，無法知道", v:"mid", fb:"不必放棄。先拆解每個說法講的是什麼，再找各自的證據。"}]},
-  {type:"choice", tag:"歷史意義", task:"OER 的比較工具最後會問：「這些相似和相異，有什麼重要的？」下面哪一句回答得最好？",
+  {type:"choice", tag:"歷史意義", task:"「這些相似和相異，有什麼重要的？」下面哪一句回答得最好？",
    options:[
     {t:"兩地的招牌茶都不是天生的：同樣受到日治時期產業組織與比賽制度的影響，又因為地理和政策條件不同而走上不同的路。這影響了兩地許多茶農的生計，一直延續到今天。", v:"ok", fb:"這句同時說明了相似、相異的原因，也用了影響範圍（許多茶農）和持續時間（延續到今天）來說明意義。"},
     {t:"鐵觀音比包種茶好。", v:"no", fb:"比較不是為了排名，而是為了理解異同的原因與意義。"},
     {t:"兩地都有茶，所以差不多。", v:"no", fb:"只說了表面的相似，沒有說明相異，也沒有說明為什麼重要。"}],
-   think:"OER 的比較回饋表看三件事：有沒有說出異同、有沒有分析異同的原因、有沒有說明它們在數量、深度、持續上的歷史意義。"},
+   think:"一個好的比較看三件事：有沒有說出異同、有沒有分析異同的原因、有沒有說明它們在數量、深度、持續上的歷史意義。"},
   {type:"reflect", task:"（選填）你還想拿木柵鐵觀音和什麼比較？為什麼？", model:"我想和鹿谷凍頂烏龍茶比較，因為廖紫均（2014）提到鐵觀音的團揉技法影響了凍頂烏龍茶，可以看看技術如何在兩地之間流動。"},
   {type:"done", cheat:[["同","相似：哪裡一樣？"],["異","相異：哪裡不一樣？"],["因","原因：為什麼會相似或不同？"],["義","意義：這些異同說明了什麼？"]]}
   ]}
@@ -518,7 +525,7 @@ let cur={q:null, i:0}, armed=null;
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const app=$("#app");
 function toast(m){const t=$("#toast");t.textContent=m;t.hidden=false;clearTimeout(toast._t);toast._t=setTimeout(()=>t.hidden=true,2200);}
-const LABEL={ok:"✓ 歷史學家也會這樣想",mid:"有道理，不過……",no:"再想想"};
+const LABEL={ok:"✓ 說得通",mid:"有道理，不過……",no:"再想想"};
 
 /* ============ home ============ */
 function home(){
@@ -531,12 +538,13 @@ function home(){
      <span class="small" style="color:var(--liquor)">歷史思考練習・木柵鐵觀音</span>
      <h1>一種茶，怎麼在木柵落地？</h1>
      <p class="lede">今天說到木柵，大家會想到鐵觀音。但它是怎麼來的？資料說法還不太一樣。跟著六個小任務，用真正的史料，練習歷史學家的思考方法。</p>
+     <div class="warn" role="note"><b>使用前請注意</b><span>本網站的資料出處尚未經人工逐一檢核。網站中的提問與引導，是依據 OER Project〈<a href="https://www.oerproject.com/OER-Materials/OER-Media/HTML-Articles/Teacher-Resources/Historical-Thinking-Skills-Guide" target="_blank" rel="noopener">Historical Thinking Skills Guide</a>〉的教材內容提供；網站的目的是把這些歷史思考教學內容具體化、互動化，用來展示歷史思考的流程，不是可信的歷史推論。網站只使用了有限的資料，因此只呈現這段歷史的部分樣貌。</span></div>
      <div class="row"><button class="btn primary" data-start="${next.id}">${n?"繼續下一個任務":"開始第一個任務"} →</button><span class="small muted">每個任務約 5–7 分鐘，主要是點選，不用打字。</span></div>
    </section>
    <div class="how">
      <div><span class="n">1</span><b>讀一小段史料</b><span class="small muted">報紙、方志、研究文章</span></div>
      <div><span class="n">2</span><b>點選你的判斷</b><span class="small muted">選答案、排卡片、放便利貼</span></div>
-     <div><span class="n">3</span><b>看歷史學家怎麼想</b><span class="small muted">馬上看到理由，可以改答案</span></div>
+     <div><span class="n">3</span><b>看引導說明</b><span class="small muted">馬上看到理由，可以改答案</span></div>
    </div>
    <h2 style="margin-bottom:12px">六個任務</h2>
    <div class="quests">
@@ -545,7 +553,7 @@ function home(){
         <span><span class="q-skill">任務 ${i+1}・${q.skill}</span><br><span class="q-title">${q.title}</span><br><span class="small muted">${q.intro}</span></span>
         <span class="q-state">${S.done[q.id]?"✓ 完成":`${q.mins} 分鐘`}</span></button>`).join("")}
    </div>
-   <div class="row" style="margin-top:20px"><button class="btn primary" id="toSkills">看六種能力總覽</button><button class="btn" id="toNotes">看我的練習筆記</button>${n?`<button class="btn ghost" id="reset">全部重來</button>`:""}</div>
+   <div class="row" style="margin-top:20px"><button class="btn primary" id="toSkills">最後回顧：六種能力總覽</button><button class="btn" id="toNotes">看我的練習筆記</button>${n?`<button class="btn ghost" id="reset">全部重來</button>`:""}</div>
 `;
   $$("[data-start]").forEach(b=>b.addEventListener("click",()=>start(b.dataset.start)));
   $("#toNotes").addEventListener("click",notes); $("#toSkills").addEventListener("click",skills);
@@ -554,38 +562,44 @@ function home(){
 }
 
 /* ============ quest runner ============ */
-function start(id){ cur={q:QUESTS.find(q=>q.id===id), i:0}; armed=null; render(); }
-function step(){ return cur.q.steps[cur.i]; }
-function sk(){ return cur.q.id+":"+cur.i; }
-function canNext(){
-  const s=step();
-  if(s.type==="choice"||s.type==="ade") return S.ans[sk()]!==undefined;
-  if(s.type==="sort") return s.items.every(it=>(S.place[sk()]||{})[it.id]);
-  if(s.type==="board") return s.items.every(it=>(S.board[sk()]||{})[it.id]);
+/* 每頁包含哪些步驟（步驟編號從 0 起算；反思題併入完成頁） */
+const PAGES={src:[[0,1],[2,3,4],[5],[6],[8]], ctx:[[0,1],[2],[4]], cau:[[0,1],[2],[3,4],[5,6],[8]], ccot:[[0,1],[2,3,4],[6]], clm:[[0,1],[2],[3,4],[5],[7]], cmp:[[0,1],[2],[3,4],[5,6],[8]]};
+QUESTS.forEach(q=>{ q.steps.forEach((s,i)=>{ s._k=q.id+":"+i; }); q.pages=PAGES[q.id]||q.steps.map((_,i)=>[i]); });
+function start(id){ cur={q:QUESTS.find(q=>q.id===id), p:0}; armed=null; render(); }
+function pageSteps(){ return cur.q.pages[cur.p].map(i=>cur.q.steps[i]); }
+function stepOK(s){
+  if(s.type==="choice"||s.type==="ade") return S.ans[s._k]!==undefined;
+  if(s.type==="sort") return s.items.every(it=>(S.place[s._k]||{})[it.id]);
+  if(s.type==="board") return s.items.every(it=>(S.board[s._k]||{})[it.id]);
   return true;
 }
+function canNext(){ return pageSteps().every(stepOK); }
 function render(){
-  const q=cur.q, s=step(), n=q.steps.length;
+  const q=cur.q, n=q.pages.length, steps=pageSteps();
   location.hash=q.id;
   $("#topState").textContent=q.skill;
   app.innerHTML=`<div class="qhead">
      <span class="skill">${q.skill}</span><h2>${q.title}</h2>
-     <div class="bar" aria-hidden="true"><i style="width:${Math.round((cur.i+1)/n*100)}%"></i></div>
-     <span class="stepno">第 ${cur.i+1} / ${n} 步</span></div>
-   <section class="card" id="card"></section>`;
-  const card=$("#card");
-  const head=`<div class="task">${s.tag?`<span class="tag">${s.tag}</span>`:""}${s.task}</div>${s.hint?`<p class="hint">${s.hint}</p>`:""}`;
-  ({read:rRead,choice:rChoice,sort:rSort,board:rBoard,map:rMap,stats:rStats,ade:rAde,reflect:rReflect,done:rDone})[s.type](card,s,head);
+     <div class="bar" aria-hidden="true"><i style="width:${Math.round((cur.p+1)/n*100)}%"></i></div>
+     <span class="stepno">第 ${cur.p+1} / ${n} 頁</span></div>
+   ${cur.p===0&&SKILLS.find(k=>k.q===q.id)?`<p class="abil"><b>這個任務練的能力：</b>${SKILLS.find(k=>k.q===q.id).ability}</p>`:""}
+   <p class="warnline">提醒：本網站用來展示歷史思考流程，資料有限、出處尚未人工逐一檢核，不是可信的歷史推論。</p>
+   ${steps.map((_,j)=>`<section class="card" id="card${j}"></section>`).join("")}`;
+  steps.forEach((s,j)=>{
+    const card=$("#card"+j);
+    const head=`<div class="task">${s.tag?`<span class="tag">${s.tag}</span>`:""}${s.task||""}</div>${s.hint?`<p class="hint">${s.hint}</p>`:""}`;
+    ({read:rRead,choice:rChoice,sort:rSort,board:rBoard,map:rMap,stats:rStats,ade:rAde,reflect:rReflect,done:rDone})[s.type](card,s,head);
+  });
   $("#nav").hidden=false;
-  $("#prev").textContent=cur.i===0?"← 任務列表":"← 上一步";
-  const last=cur.i===n-1;
-  $("#next").textContent=last?"回任務列表 →":"下一步 →";
+  $("#prev").textContent=cur.p===0?"← 任務列表":"← 上一頁";
+  const last=cur.p===n-1, nx=QUESTS[QUESTS.indexOf(q)+1];
+  $("#next").textContent=last?(nx?"下一個任務 →":"能力總覽 →"):"下一頁 →";
   updNav();
   window.scrollTo(0,0);
 }
-function updNav(){ const ok=canNext(); $("#next").disabled=!ok; $("#navWhy").textContent=ok?"":(step().type==="choice"||step().type==="ade"?"先選一個答案":"先把每一張都放好"); }
-$("#prev").addEventListener("click",()=>{ if(cur.i===0) return home(); cur.i--; armed=null; render(); });
-$("#next").addEventListener("click",()=>{ if(!canNext()) return; if(cur.i===cur.q.steps.length-1){ return home(); } cur.i++; armed=null; render(); });
+function updNav(){ const ok=canNext(); $("#next").disabled=!ok; const bad=pageSteps().find(s=>!stepOK(s)); $("#navWhy").textContent=ok?"":(bad.type==="choice"||bad.type==="ade"?"先回答這一頁的題目":"先把每一張都放好"); }
+$("#prev").addEventListener("click",()=>{ if(cur.p===0) return home(); cur.p--; armed=null; render(); });
+$("#next").addEventListener("click",()=>{ if(!canNext()) return; if(cur.p===cur.q.pages.length-1){ const nx=QUESTS[QUESTS.indexOf(cur.q)+1]; return nx?start(nx.id):skills(); } cur.p++; armed=null; render(); });
 $("#toHome").addEventListener("click",home);
 
 function rRead(card,s,head){
@@ -593,10 +607,10 @@ function rRead(card,s,head){
 }
 function fbHTML(o){ return `<div class="fb ${o.v}"><span class="lab">${LABEL[o.v]}</span><span>${o.fb}</span></div>`; }
 function rChoice(card,s,head){
-  const pick=S.ans[sk()];
+  const pick=S.ans[s._k];
   card.innerHTML=head+(s.body?`<div class="stack">${s.body()}</div>`:"")+`<div class="opts">${s.options.map((o,i)=>`<button class="opt" data-i="${i}" aria-pressed="${pick===i}"><span class="k">${"ABCD"[i]}</span><span>${o.t}</span></button>`).join("")}</div>
-    <div id="fbBox">${pick!==undefined?fbHTML(s.options[pick])+(s.think?`<div class="think"><b>歷史學家的提醒：</b>${s.think}</div>`:""):""}</div>`;
-  $$(".opt",card).forEach(b=>b.addEventListener("click",()=>{ S.ans[sk()]=+b.dataset.i; save(); rChoice(card,s,head); updNav(); $("#fbBox").scrollIntoView({block:"nearest",behavior:"smooth"}); }));
+    <div class="fbBox">${pick!==undefined?fbHTML(s.options[pick])+(s.think?`<div class="think"><b>提醒：</b>${s.think}</div>`:""):""}</div>`;
+  $$(".opt",card).forEach(b=>b.addEventListener("click",()=>{ S.ans[s._k]=+b.dataset.i; save(); rChoice(card,s,head); updNav(); $(".fbBox",card).scrollIntoView({block:"nearest",behavior:"smooth"}); }));
 }
 function rAde(card,s,head){
   const body=`<table class="ade"><thead><tr><th></th><th>A 數量：影響多少人</th><th>D 深度：影響多深</th><th>E 持續：影響多久</th></tr></thead><tbody>${s.rows.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`).join("")}</tbody></table>`;
@@ -604,36 +618,36 @@ function rAde(card,s,head){
   rChoice(card,s2,head);
 }
 function rSort(card,s,head){
-  const pl=S.place[sk()]||(S.place[sk()]={});
-  const chip=it=>{ const z=pl[it.id]; const v=z?(it.ok[0]===z?"ok":(it.ok.includes(z)?"mid":"no")):"";
+  const pl=S.place[s._k]||(S.place[s._k]={});
+  const chip=it=>{ const z=pl[it.id]; const v=z?(s.open?"open":(it.ok[0]===z?"ok":(it.ok.includes(z)?"mid":"no"))):"";
     return `<div class="placed"><button class="chipcard ${v}" data-it="${it.id}" aria-pressed="${armed===it.id}">${it.yr?`<span class="yr">${it.yr}</span>`:""}<span>${it.t}</span>${it.src?`<span class="src">出處：${it.src}</span>`:""}</button>
-      ${z?`<div class="pfb ${v}">${v==="ok"?"✓ ":v==="mid"?"也可以。":"歷史學家會放在「"+s.buckets.find(b=>b.id===it.ok[0]).label+"」："}${it.fb}</div>`:""}</div>`; };
+      ${z?`<div class="pfb ${v}">${v==="open"?"想一想：":v==="ok"?"✓ ":v==="mid"?"也可以。":"建議放在「"+s.buckets.find(b=>b.id===it.ok[0]).label+"」："}${it.fb}</div>`:""}</div>`; };
   const pool=s.items.filter(it=>!pl[it.id]);
   const bucket=(b,cls="")=>`<div class="bucket ${cls}${armed?" armed":""}" data-b="${b.id}"><div class="bh"><b>${b.label}</b><span>${b.sub||""}</span></div>${s.items.filter(it=>pl[it.id]===b.id).map(chip).join("")}</div>`;
   let zones;
   if(s.funnel){ zones=`<div class="funnel">${bucket(s.buckets[0],"b1")}<div class="chev">▼</div>${bucket(s.buckets[1],"b2")}<div class="chev">▼</div><div class="spout">鐵觀音來到木柵（1895–1896）</div>${bucket(s.buckets[2])}</div>`; }
   else zones=`<div class="buckets ${s.cols?"cols":""}" style="--n:${s.buckets.length}">${s.buckets.map(b=>bucket(b)).join("")}</div>`;
   card.innerHTML=head+`<div class="pool" data-b="__pool">${pool.length?pool.map(chip).join(""):`<div class="empty">全部放好了！看看每張卡片下的說明。</div>`}</div>${zones}
-    <div class="row"><button class="btn sm" id="reveal">直接看歷史學家怎麼放</button></div>
-    ${s.think&&pool.length===0?`<div class="think"><b>歷史學家的提醒：</b>${s.think}</div>`:""}`;
+    <div class="row"><button class="btn sm reveal">${s.open?"跳過，直接看每張卡片的說明":"直接看建議放法"}</button></div>
+    ${s.think&&pool.length===0?`<div class="think"><b>提醒：</b>${s.think}</div>`:""}`;
   $$("[data-it]",card).forEach(b=>b.addEventListener("click",e=>{ e.stopPropagation(); armed=armed===b.dataset.it?null:b.dataset.it; rSort(card,s,head); if(armed) toast("現在點要放的框"); }));
   $$("[data-b]",card).forEach(z=>z.addEventListener("click",()=>{ if(!armed) return; if(z.dataset.b==="__pool") delete pl[armed]; else pl[armed]=z.dataset.b; armed=null; save(); rSort(card,s,head); updNav(); }));
-  $("#reveal").addEventListener("click",()=>{ s.items.forEach(it=>{ if(!pl[it.id]) pl[it.id]=it.ok[0]; }); armed=null; save(); rSort(card,s,head); updNav(); });
+  $(".reveal",card).addEventListener("click",()=>{ s.items.forEach(it=>{ if(!pl[it.id]) pl[it.id]=it.ok[0]; }); armed=null; save(); rSort(card,s,head); updNav(); });
 }
 function axes(){ return `<span class="ax" style="left:8px;top:50%;transform:translateY(-130%)">← 延續</span><span class="ax" style="right:8px;top:50%;transform:translateY(-130%)">變遷 →</span><span class="ax" style="left:50%;top:6px;transform:translateX(6px)">↑ 正面</span><span class="ax" style="left:50%;bottom:6px;transform:translateX(6px)">↓ 負面</span>`; }
 function rBoard(card,s,head){
-  const bd=S.board[sk()]||(S.board[sk()]={});
+  const bd=S.board[s._k]||(S.board[s._k]={});
   const pool=s.items.filter(it=>!bd[it.id]);
   const placed=s.items.filter(it=>bd[it.id]);
-  const verdict=it=>{ const p=bd[it.id]; const sx=(p.x<.5)===(it.rx<.5), sy=(p.y<.5)===(it.ry<.5); return sx&&sy?"ok":(sx||sy?"mid":"no"); };
+  const verdict=it=>{ const p=bd[it.id]; return (p.x<.5)===(it.rx<.5)?"ok":"mid"; };
   if(!armed&&pool.length) armed=pool[0].id;
   const cur0=s.items.find(it=>it.id===armed);
-  card.innerHTML=head+`<div class="notepool">${pool.length?pool.map(it=>`<button class="note" data-it="${it.id}" aria-pressed="${armed===it.id}">${it.t}</button>`).join(""):`<span class="small muted">六張都放好了！比對一下虛線框。</span>`}</div>
+  card.innerHTML=head+`<div class="notepool">${pool.length?pool.map(it=>`<button class="note" data-it="${it.id}" aria-pressed="${armed===it.id}">${it.t}</button>`).join(""):`<span class="small muted">六張都放好了！看看下面每一張的說明，想改位置可以按「重放」。</span>`}</div>
     ${cur0?`<p class="nowplacing">現在要放：「${cur0.t}」→ 點看板上的位置</p>`:""}
     <div class="board${armed?" armed":""}" id="board">${axes()}
-      ${placed.map(it=>`<div class="pin ref" style="left:${it.rx*100}%;top:${it.ry*100}%">${it.t.slice(0,8)}…</div><div class="pin" style="left:${bd[it.id].x*100}%;top:${bd[it.id].y*100}%">${it.t}</div>`).join("")}</div>
-    <div class="stack">${placed.map(it=>{const v=verdict(it);return `<div class="pfb ${v}"><b>${it.t}</b>　${v==="ok"?"✓ 和歷史學家的判斷一致。":v==="mid"?"有一個方向不同。":"兩個方向都不同。"}${it.fb} <button class="linkbtn" data-back="${it.id}" style="border:0;background:none;color:var(--liquor);cursor:pointer;text-decoration:underline">重放</button></div>`;}).join("")}</div>
-    ${pool.length===0?`<div class="think"><b>歷史學家的提醒：</b>正面或負面，一定要問「對誰而言」。和參考位置不同不一定錯，只要說得出理由。</div>`:""}`;
+      ${placed.map(it=>`<div class="pin" style="left:${bd[it.id].x*100}%;top:${bd[it.id].y*100}%">${it.t}</div>`).join("")}</div>
+    <div class="stack">${placed.map(it=>{const v=verdict(it);return `<div class="pfb ${v}"><b>${it.t}</b>　${v==="ok"?`✓ 資料顯示這比較是${it.rx<.5?"延續":"變遷"}。`:`資料顯示這比較是${it.rx<.5?"延續":"變遷"}。`}${it.fb} <button class="linkbtn" data-back="${it.id}" style="border:0;background:none;color:var(--liquor);cursor:pointer;text-decoration:underline">重放</button></div>`;}).join("")}</div>
+    ${pool.length===0?`<div class="think"><b>提醒：</b>左右（延續或變遷）可以從資料判斷；上下（正面或負面）沒有標準答案，要看「對誰而言」，所以這裡不給參考位置。</div>`:""}`;
   $$("[data-it]",card).forEach(b=>b.addEventListener("click",()=>{ armed=b.dataset.it; rBoard(card,s,head); $("#board").scrollIntoView({block:"center",behavior:"smooth"}); }));
   $("#board").addEventListener("click",e=>{ if(!armed){ if(pool.length) toast("先點一張便利貼"); return; } const r=e.currentTarget.getBoundingClientRect(); bd[armed]={x:Math.min(.95,Math.max(.05,(e.clientX-r.left)/r.width)),y:Math.min(.94,Math.max(.06,(e.clientY-r.top)/r.height))}; armed=null; save(); rBoard(card,s,head); updNav(); });
   $$("[data-back]",card).forEach(b=>b.addEventListener("click",()=>{ delete bd[b.dataset.back]; armed=b.dataset.back; save(); rBoard(card,s,head); updNav(); $("#board").scrollIntoView({block:"center",behavior:"smooth"}); }));
@@ -656,7 +670,7 @@ function rMap(card,s,head){
   Object.entries(by).forEach(([z,a])=>{ const y0=Math.max(34,(H-a.length*80)/2); a.forEach((it,i)=>{ nodes+=`<div class="node" data-n="${it.id}" style="left:${cols[z]}px;top:${y0+i*80}px"><span class="yr">${it.yr}</span>${it.t}</div>`; }); });
   nodes+=`<div class="center" id="mc" style="left:540px;top:${H/2-30}px">鐵觀音成為<br>木柵招牌茶</div>`;
   card.innerHTML=head+`<div class="mapwrap"><div class="map" id="map" style="height:${H}px"><svg aria-hidden="true"><defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="var(--muted)"/></marker></defs></svg>${nodes}</div></div>
-    <div class="think"><b>看出來了嗎？</b>長期原因提供了「土壤」（人、技術、市場），中期原因帶來茶苗和製法，短期原因讓它變成招牌。拿掉任何一層，故事都不完整。這就是為什麼歷史學家避免「單一原因」的解釋。</div>`;
+    <div class="think"><b>看出來了嗎？</b>長期原因提供了「土壤」（人、技術、市場），中期原因帶來茶苗和製法，短期原因讓它變成招牌。拿掉任何一層，故事都不完整。這就是為什麼要避免「單一原因」的解釋。</div>`;
   requestAnimationFrame(()=>{ const map=$("#map"); if(!map) return; const b=map.getBoundingClientRect(); const c=$("#mc").getBoundingClientRect(); let p="";
     $$(".node",map).forEach(n=>{ const r=n.getBoundingClientRect(); const x1=r.right-b.left,y1=(r.top+r.bottom)/2-b.top,x2=c.left-b.left,y2=(c.top+c.bottom)/2-b.top,mx=(x1+x2)/2; p+=`<path d="M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}" fill="none" stroke="var(--line)" stroke-width="1.5" marker-end="url(#ar)"/>`; });
     $("svg",map).insertAdjacentHTML("beforeend",p); });
@@ -671,12 +685,20 @@ function rReflect(card,s,head){
 function rDone(card,s,head){
   S.done[cur.q.id]=true; save();
   const idx=QUESTS.indexOf(cur.q); const nx=QUESTS[idx+1];
+  const sk=SKILLS.find(k=>k.q===cur.q.id); const rf=cur.q.steps.find(x=>x.type==="reflect");
   card.innerHTML=`<div class="task">完成「${cur.q.title}」</div>
+    ${sk?`<div class="skillbox"><span class="small" style="color:var(--liquor)">你剛剛練習的能力：${sk.name}</span><p><b>${sk.ability}</b></p><p class="small muted">你做了：${sk.did}</p>
+      <p style="margin-top:10px"><b>所以呢？以後處理史料時可以這樣做：</b></p><ul class="ask">${sk.next.map(a=>`<li>${a}</li>`).join("")}</ul></div>`:""}
     <p>帶走這張小抄，下次讀史料時也用得上：</p>
     <div class="cheat">${s.cheat.map(([a,b])=>`<b>${a}</b><span>${b}</span>`).join("")}</div>
-    <div class="row">${nx?`<button class="btn primary" data-start="${nx.id}">下一個任務：${nx.title} →</button>`:`<button class="btn primary" id="goSkills">看六種能力總覽 →</button>`}<button class="btn" id="goSk2">這個任務練了什麼能力？</button></div>`;
+    ${rf?`<div class="reflbox"><div class="task" style="font-size:18px">${rf.task}</div><p class="hint">寫一兩句就好，也可以直接跳過。寫的內容只存在你的瀏覽器裡，會出現在「練習筆記」。</p>
+      <textarea id="refl" aria-label="反思">${(S.refl[cur.q.id]||"").replace(/</g,"&lt;")}</textarea>
+      <details class="model"><summary>看一個參考寫法</summary><p style="margin-top:8px">${rf.model}</p></details></div>`:""}
+    <p style="margin-top:16px"><b>${nx?`接下來：任務 ${idx+2}「${nx.title}」，練習${nx.skill}。`:"六個任務都完成了！最後回顧一下你練習了哪些能力。"}</b></p>
+    <div class="row">${nx?`<button class="btn primary" data-start="${nx.id}">下一個任務：${nx.title} →</button>`:`<button class="btn primary" id="goSkills">最後回顧：六種能力總覽 →</button>`}</div>`;
   $$("[data-start]",card).forEach(b=>b.addEventListener("click",()=>start(b.dataset.start)));
-  $("#goSkills")?.addEventListener("click",skills); $("#goSk2").addEventListener("click",skills);
+  $("#goSkills")?.addEventListener("click",skills);
+  $("#refl")?.addEventListener("input",e=>{ S.refl[cur.q.id]=e.target.value; save(); });
 }
 
 
@@ -686,31 +708,37 @@ const SKILLS = [
   did:"換算報紙上的年號、追問說話者的身分與讀者、分辨一份史料能回答與回答不了的問題、翻看志書的註腳。",
   ability:"判斷一則資訊從哪裡來、可以信到什麼程度。",
   ask:["這是誰說的？什麼時候、在哪裡說的？","他是說給誰聽的？想達成什麼？","他的身分讓他特別看見什麼、看不見什麼？","這份資料能證明什麼？不能證明什麼？"],
+  next:["引用一份史料前，先寫下它的 HAPPY：誰寫的、寫給誰、為什麼寫。","寫報告時，把史料的立場一起交代，例如「這是一份有總督府支持的報紙的報導」，而不是把它當成單純的事實。","想清楚這份史料證明不了什麼，再去找另一類史料來補（例如報紙之外，再找檔案或口述）。"],
   levels:["我能說出作者、時間和讀者","我能說明這些背景如何影響內容","我能對照多份資料，說出它能證明與不能證明的事"]},
  {q:"ctx", glyph:"境", name:"脈絡化", en:"Contextualization",
   did:"用漏斗把背景分成廣泛和狹窄兩層，並排除發生在事件之後的事。",
   ability:"把事件放回當時的時間、地點與社會，避免用今天的眼光解釋過去。",
   ask:["事情發生時，大環境正在發生什麼？","在地的條件是什麼？誰有門路、誰有動機？","我是不是用了後來才發生的事來解釋它？"],
+  next:["廣泛脈絡：去讀通論、年表或統計，了解大環境。","狹窄脈絡：去找地方志、地方報導、口述訪談或族譜，了解在地條件。","寫報告時先交代背景，再談事件；用到的背景，要確定是發生在事件之前或當時的事。"],
   levels:["我能列出事件的背景","我能分出廣泛脈絡與狹窄脈絡","我能說明背景「如何」讓事件發生"]},
  {q:"cau", glyph:"因", name:"因果分析", en:"Causation",
   did:"把原因分成長期、中期、短期，看出沒有單一原因，再用 ADE 判斷哪個比較重要。",
   ability:"為一件事建立有證據、有層次的解釋，而不是只找一個原因。",
   ask:["哪些條件很早就存在？哪些是最後推一把的？","少了哪一個，事情就不會發生（必要條件）？","原因之間有沒有互相影響？結果會不會又變成新的原因？","用影響人數、深度、持續時間來看，哪個最重要？"],
+  next:["分類的用處，是知道每一類原因該找哪種證據：長期條件可找統計、方志、貿易資料；中期發展可找政策與機構檔案（例如製茶試驗場）；短期因素可找當年報紙、得獎名單、當事人口述。","檢查自己的解釋：如果只有某一類原因，代表可能還缺了一層，要再找資料。","選定一個最重要的原因後，它只是假設，接下來要找更多資料證明它，也留意反對它的資料。"],
   levels:["我能找出幾個原因","我能依時間長短分類，並區分必要條件與觸發因素","我能說明原因之間的連動，並判斷哪個最重要"]},
  {q:"ccot", glyph:"變", name:"延續與變遷", en:"CCOT",
   did:"在看板上排出什麼變了、什麼沒變，判斷正負，再寫出「在多大程度上」的論點。",
   ability:"看出長時間的趨勢，同時注意改變之中仍延續的東西。",
   ask:["這段時間裡，什麼改變了？什麼一直沒變？","這個改變對誰是好事、對誰不是？","改變是快還是慢？範圍是地方性的還是全球性的？","我的結論有沒有說出程度，也承認反面？"],
+  next:["每一張「變」或「不變」都是一個待證明的主張：找變遷前後兩個時間點的資料來對照（例如不同年代的統計、報紙、口述）。","選定的「最重要的變遷」就是你論點的主軸，接下來要找更多資料來支持，也要找看看有沒有反例。","判斷正負時，寫清楚是對誰而言，並找那一群人留下的資料。"],
   levels:["我能指出改變與延續","我能判斷正負，並說明是對誰而言","我能寫出有程度、有理由、承認反面的論點"]},
  {q:"clm", glyph:"驗", name:"論點檢驗", en:"Claim Testing",
   did:"用直覺、權威、邏輯、證據四種方法，檢驗一個 AI 給的年份，並在資料矛盾時承認「目前還無法確定」。",
   ability:"不被說法的口氣或來頭說服，而是回到證據判斷。",
   ask:["這個說法聽起來對，是因為證據，還是因為我本來就這樣想？","說的人（或 AI）根據什麼？能回頭查嗎？","推論合理嗎？有沒有不可能的地方？","有哪些證據支持？哪些反對？證據夠不夠？"],
+  next:["看到一個說法（包括 AI 的回答），先找出它的原始出處，再決定要不要引用。","把支持和反對的證據並排列出；證據不足時，寫下還需要找哪些史料。","資料彼此矛盾時，記下各自的出處和說法，不要只挑一個符合自己想法的。"],
   levels:["我能分辨「說法」和「證據」","我能用四種檢驗找出說法的弱點","證據不足時，我能說「目前無法確定」，並指出下一步要找什麼"]},
  {q:"cmp", glyph:"比", name:"比較", en:"Comparison",
   did:"把木柵鐵觀音和坪林包種茶放在一起，找出相似與相異，解釋原因並說明意義。",
   ability:"透過對照，看出單看一個案例時看不見的條件。",
   ask:["我比的兩件事，真的是同一類東西嗎？","哪裡相似？哪裡不同？","為什麼會相似或不同？是地理、政策、市場，還是人？","這些異同讓我理解了什麼？"],
+  next:["比較前先確認兩件事是同一類，例如都是茶類、都在同一段時間。","找到的「相異」，就是要追問原因的地方：去找兩地各自的資料（地方志、產業統計、報導）對照。","比較之後，回頭看單一案例：哪些原本覺得理所當然的條件，其實是這個地方特有的？"],
   levels:["我能列出相似與相異","我能解釋異同的原因","我能說明這個比較的歷史意義"]}
 ];
 function skills(){
@@ -719,10 +747,10 @@ function skills(){
   app.innerHTML=`<section class="stack">
     <span class="small" style="color:var(--liquor)">練習之後</span>
     <h2>你練習了哪些能力？</h2>
-    <p>這六個任務，每一個都在練一種歷史學家的思考習慣。看看你做過什麼、它是什麼能力，再<b>點選你覺得自己目前做得到的程度</b>。之後讀新聞、看到 AI 的回答、寫報告時，都可以拿這些問題問自己。</p>
+    <p>這六個任務，每一個都在練一種歷史思考習慣。看看你做過什麼、它是什麼能力，再<b>點選你覺得自己目前做得到的程度</b>。之後讀新聞、看到 AI 的回答、寫報告時，都可以拿這些問題問自己。</p>
     ${SKILLS.map(k=>{const q=QUESTS.find(x=>x.id===k.q); const lv=S.lv[k.q];
       return `<article class="sk"><div class="sk-head"><span class="glyph">${k.glyph}</span><div><h3>${k.name} <span class="small muted" style="font-family:var(--f-body);font-weight:400">${k.en}</span></h3><span class="small muted">任務：${q.title}${S.done[k.q]?"　✓ 已完成":""}</span></div></div>
-       <dl><dt>你做了什麼</dt><dd>${k.did}</dd><dt>這是什麼能力</dt><dd>${k.ability}</dd><dt>下次問自己</dt><dd><ul class="ask">${k.ask.map(a=>`<li>${a}</li>`).join("")}</ul></dd></dl>
+       <dl><dt>你做了什麼</dt><dd>${k.did}</dd><dt>這是什麼能力</dt><dd>${k.ability}</dd><dt>下次問自己</dt><dd><ul class="ask">${k.ask.map(a=>`<li>${a}</li>`).join("")}</ul></dd><dt>以後處理史料時</dt><dd><ul class="ask">${k.next.map(a=>`<li>${a}</li>`).join("")}</ul></dd></dl>
        <div class="small muted">我目前做得到的程度（點選）：</div>
        <div class="lv">${k.levels.map((t,i)=>`<button data-lv="${k.q}|${i}" aria-pressed="${lv===i}"><b>第 ${i+1} 級</b>${t}</button>`).join("")}</div>
        ${S.done[k.q]?"":`<div><button class="btn sm" data-start="${k.q}">去做這個任務 →</button></div>`}
@@ -749,15 +777,15 @@ function notes(){
   QUESTS.forEach((q,qi)=>{
     L.push(`【任務 ${qi+1}】${q.title}（${q.skill}）${S.done[q.id]?"✓":""}`);
     q.steps.forEach((s,i)=>{ const k=q.id+":"+i;
-      if((s.type==="choice"||s.type==="ade")&&S.ans[k]!==undefined){ const o=s.options[S.ans[k]]; L.push(`・${s.task.replace(/<[^>]+>/g,"")}`,`　我選：${o.t}（${{ok:"與歷史學家一致",mid:"部分一致",no:"不同"}[o.v]}）`); }
-      if(s.type==="sort"&&S.place[k]){ const ok=s.items.filter(it=>S.place[k][it.id]&&it.ok.includes(S.place[k][it.id])).length; L.push(`・${s.task}：${ok} / ${s.items.length} 張與參考一致`); }
+      if((s.type==="choice"||s.type==="ade")&&S.ans[k]!==undefined){ const o=s.options[S.ans[k]]; L.push(`・${s.task.replace(/<[^>]+>/g,"")}`,`　我選：${o.t}（${{ok:"說得通",mid:"有道理，但不完整",no:"可再想想"}[o.v]}）`); }
+      if(s.type==="sort"&&S.place[k]){ if(s.open){ L.push(`・${s.task}`); s.items.forEach(it=>{const z=S.place[k][it.id]; if(z) L.push(`　${it.t} → ${s.buckets.find(b=>b.id===z).label}`);}); } else { const ok=s.items.filter(it=>S.place[k][it.id]&&it.ok.includes(S.place[k][it.id])).length; L.push(`・${s.task}：${ok} / ${s.items.length} 張與參考一致`); } }
       if(s.type==="board"&&S.board[k]){ L.push(`・延續與變遷看板：放了 ${Object.keys(S.board[k]).length} 張便利貼`); }
     });
     if(S.refl[q.id]) L.push(`・我的想法：${S.refl[q.id]}`);
     const sk=SKILLS.find(k=>k.q===q.id); if(sk&&S.lv&&S.lv[q.id]!==undefined) L.push(`・自評能力：第 ${S.lv[q.id]+1} 級（${sk.levels[S.lv[q.id]]}）`);
     L.push("");
   });
-  L.push("—— 練習改作自 OER Project 歷史思考工具（CC BY 4.0）");
+  L.push("—— 練習改作自 OER Project〈Historical Thinking Skills Guide〉（CC BY 4.0）");
   app.innerHTML=`<section class="notes stack"><h2>我的練習筆記</h2><p class="hint">這份筆記只存在這台電腦的瀏覽器裡。要交作業或留存，請按「複製」貼到你的文件。</p>
     <div class="row"><button class="btn primary" id="copy">複製全部</button><button class="btn" id="back">← 回任務列表</button></div><pre id="nt">${L.join("\n").replace(/</g,"&lt;")}</pre></section>`;
   $("#copy").addEventListener("click",()=>{ const t=$("#nt").textContent; (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast("已複製")).catch(()=>{ const r=document.createRange(); r.selectNodeContents($("#nt")); const g=getSelection(); g.removeAllRanges(); g.addRange(r); toast("已選取，請按 Ctrl/Cmd + C"); }); });
@@ -767,7 +795,7 @@ function notes(){
 
 /* ============ boot ============ */
 $("#srcLink").href=SOURCES_URL;
-window.addEventListener("resize",()=>{ if(cur.q&&step().type==="map") render(); });
+window.addEventListener("resize",()=>{ if(cur.q&&cur.q.pages&&pageSteps().some(s=>s.type==="map")) render(); });
 const h=location.hash.slice(1); const hq=QUESTS.find(q=>q.id===h);
 if(hq) start(hq.id); else if(h==="skills") skills(); else home();
 })();
