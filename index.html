@@ -219,8 +219,9 @@ footer b{color:var(--ink)}
     <p><b>關於這個網站</b>　六個任務依據 OER Project 的歷史思考技能指南 <a href="https://www.oerproject.com/OER-Materials/OER-Media/HTML-Articles/Teacher-Resources/Historical-Thinking-Skills-Guide" target="_blank" rel="noopener">Historical Thinking Skills Guide</a>、Sourcing／Contextualization／Causation／Comparison 工具、Sourcing／Contextualization／CCOT／Comparison 回饋表，以及 Causation、CCOT、Claim Testing 課程活動改作（工具與回饋表以 <a href="https://creativecommons.org/licenses/by/4.0/deed.zh-hant" target="_blank" rel="noopener">CC BY 4.0</a> 授權）。本網站已翻譯為繁體中文，改為逐步點選的自學形式，換成臺灣在地案例，並把原本的書寫題簡化為選擇題。部分步驟為本網站新增，例如脈絡化的「不算脈絡」、比較的一手史料與「說法不一」題、論點檢驗的 AI 範例；論點檢驗與能力總覽的分級為本網站自訂，非 OER 原版回饋表。</p>
     <p><b>史料</b>　陳培桂《淡水廳志》卷四（1871）；《漢文臺灣日日新報》1908 年 1 月 14 日〈昨年臺灣茶（一）〉、7 月 28 日〈包種近況〉；連橫《臺灣通史》卷二十七；《臺灣總督府檔案事典》〈製茶試驗場〉。</p>
     <p><b>研究與說明資料</b>　臺北市文山區公所《文山區志》卷四第五章；溫振華〈木柵茶史〉（2001）；廖紫均〈地方特色茶與茶產業的延續與傳承〉（2014）；張榕紜《木柵茶農生活世界的探究》（2009）；黃柏鈞〈農業遊憩品牌的象徵鬥爭場域初探：以坪林茶產業為例〉（2022）；國家文化記憶庫相關條目；維基百科〈臺灣日日新報〉。</p>
-    <p><b>製作與分工</b>　本網站由國立政治大學圖書館與 AI 助理 Claude（Anthropic）合作製作，於 2026 年 10 月使用 Claude Opus 5.5（medium）完成。<b>圖書館</b>負責教學目標與整體方向、選定案例、提供 OER Project 原始素材與史料（含資料庫檢索與全文）、決定取捨。<b>Claude</b> 依指示提出網站設計、撰寫程式與題目文字、從圖書館提供及公開可取得的資料中整理史實與照錄史料、進行引用查核與爭議用語檢視。<b style="color:var(--warn)">注意：Claude 整理的資料內容（史實、引文、出處）尚未經人工逐一查核。</b>網站中的引導說明是教學判斷，不是史料本身；如發現錯誤，歡迎告知國立政治大學圖書館。</p>
-    <p><b>史料包與查核紀錄</b>　史料原文照錄、出處、資料矛盾整理、引用查核報告與建議追查的一手史料，請見 <a href="https://github.com/mookrue/muzha-tea-thinking/tree/main/sources" id="srcLink" target="_blank" rel="noopener">史料包</a>。網站不收集任何資料，作答只存在你自己的瀏覽器。</p>
+    <p><b>資料搜尋方式</b>　一手史料主要透過臺鵠 TAIHU 人文知識探勘系統（臺大數位人文研究中心）以提問方式查得；二手資料則透過 Google、華藝線上圖書館（Airiti Library）及臺灣博碩士論文知識加值系統查得。以上只做了單輪搜尋，尚未全面轉換關鍵字，因此並未找到完整的相關資料。</p>
+    <p><b>製作與分工</b>　本網站由國立政治大學圖書館與 AI 助理 Claude（Anthropic）合作製作，於 2026 年 10 月使用 Claude Opus 5.5（medium）完成。<b>圖書館</b>負責教學目標與整體方向、選定案例、提供 OER Project 原始素材與史料（含資料庫檢索與全文）、決定取捨。<b>Claude</b> 依指示提出網站設計、撰寫程式與題目文字、從圖書館提供及公開可取得的資料中整理史實與照錄史料、進行引用查核與爭議用語檢視。<b style="color:var(--warn)">注意：本網站已使用自訂的引用查核 skill（citation-verification）讓 Claude 自我檢核，然而資料出處的正確性尚未經人工逐一查證。</b>網站中的引導說明是教學判斷，不是史料本身；如發現錯誤，歡迎告知國立政治大學圖書館。</p>
+    <p><b>隱私</b>　網站不收集任何資料，作答只存在你自己的瀏覽器。</p>
   </footer>
 </div>
 <nav class="nav" id="nav" hidden><div class="in">
@@ -233,8 +234,6 @@ footer b{color:var(--ink)}
 <script>
 (() => {
 "use strict";
-/* 史料包所在的 GitHub 資料夾。上架後若 repo 名稱不同，改這一行即可。 */
-const SOURCES_URL = "https://github.com/mookrue/muzha-tea-thinking/tree/main/sources";
 
 /* ============ shared text ============ */
 const SRC = {
@@ -794,7 +793,6 @@ function notes(){
 }
 
 /* ============ boot ============ */
-$("#srcLink").href=SOURCES_URL;
 window.addEventListener("resize",()=>{ if(cur.q&&cur.q.pages&&pageSteps().some(s=>s.type==="map")) render(); });
 const h=location.hash.slice(1); const hq=QUESTS.find(q=>q.id===h);
 if(hq) start(hq.id); else if(h==="skills") skills(); else home();
