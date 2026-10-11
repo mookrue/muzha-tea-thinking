@@ -25,28 +25,6 @@
 - **自動記錄**：進度和答案存在學生自己的瀏覽器（localStorage），可以隨時離開再回來。「練習筆記」頁可以一鍵複製全部紀錄，用來交作業。
 - **不需要 AI、不收集資料**：網站沒有後端，不會把學生的作答傳到任何地方。
 
-## 上架到 GitHub Pages
-
-1. 在 GitHub 建立新的 repository（例如 `muzha-tea-thinking`），設為 Public。
-2. 把這個資料夾裡的所有檔案上傳到 repository 根目錄：`index.html`、`README.md`、`LICENSE.md`。網頁上可以直接拖曳上傳（Add file → Upload files）。
-3. 到 **Settings → Pages**，Source 選 **Deploy from a branch**，Branch 選 `main`、資料夾選 `/ (root)`，按 Save。
-4. 約一兩分鐘後，網址會是 `https://<你的帳號>.github.io/<repository 名稱>/`。
-
-## 修改內容
-
-所有題目都寫在 `index.html` 裡的 `QUESTS` 陣列。每個任務由幾個步驟組成，步驟類型有：
-
-- `read`：閱讀說明或史料
-- `choice`：選擇題。每個選項標記 `ok`（說得通）、`mid`（部分有道理）或 `no`，並附上回饋文字
-- `sort`：把卡片分到不同的框，每張卡片可以有多個可接受的答案
-- `board`：延續與變遷看板，每張便利貼有參考座標
-- `map`：依任務 3 的分類自動畫出因果圖
-- `ade`：用數量、深度、持續判斷重要性
-- `reflect`：選填的反思，附參考寫法（顯示在任務完成頁）
-- `done`：任務完成頁：能力說明、小抄、反思與前往下一個任務
-
-哪些步驟放在同一頁，由 `index.html` 裡的 `PAGES` 設定（步驟編號從 0 起算）。
-
 ## 資料搜尋方式
 
 一手史料主要透過臺鵠 TAIHU 人文知識探勘系統（臺大數位人文研究中心）以提問方式查得；二手資料則透過 Google、華藝線上圖書館（Airiti Library）及臺灣博碩士論文知識加值系統查得。以上只做了單輪搜尋，尚未全面轉換關鍵字，因此並未找到完整的相關資料。
